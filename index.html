@@ -119,22 +119,26 @@
     </ol>
 
     <h2 id="form">فرم ثبت درخواست</h2>
-    <form>https://formspree.io/f/mvgqqznd
+    <!-- اتصال به Formspree -->
+    <form action="https://formspree.io/f/mvgqqznd" method="POST">
+      <!-- تنظیم موضوع ایمیل -->
+      <input type="hidden" name="_subject" value="درخواست جدید از ماشینت">
       <label>نام و نام خانوادگی:</label>
-      <input type="text" placeholder="نام کامل شما" required>
+      <input name="name" type="text" placeholder="نام کامل شما" required>
       <label>شماره تماس:</label>
-      <input id="phone" type="tel" placeholder="مثلاً 09123456789" pattern="[0-9]{11}" minlength="11" maxlength="11" required>
+      <input name="phone" id="phone" type="tel" placeholder="مثلاً 09123456789" pattern="[0-9]{11}" minlength="11" maxlength="11" required>
       <label>من:</label>
-      <select required>
+      <select name="role" required>
         <option value="">انتخاب کنید</option>
         <option>خریدار هستم</option>
         <option>فروشنده هستم</option>
         <option>کارشناس/مشاور هستم</option>
       </select>
       <label>توضیح نیاز:</label>
-      <textarea rows="2" placeholder="مثلاً به دنبال پژو 207 کم کارکرد هستم..." required></textarea>
+      <textarea name="message" rows="2" placeholder="مثلاً به دنبال پژو 207 کم کارکرد هستم..." required></textarea>
       <button class="cta" type="submit">همین حالا درخواست بده!</button>
-    </form>https://formspree.io/f/mvgqqznd
+    </form>
+
     <h2>اعتمادسازی</h2>
     <ul>
       <li>همراهی تا پایان معامله</li>
@@ -155,7 +159,9 @@
       if (phoneValue.length !== 11) {
         e.preventDefault();
         alert('اطلاعات تکمیل نیست: شماره تماس باید ۱۱ رقم باشد.');
+        return;
       }
+      // بعد از ارسال فرم، می‌توانید کاربر را به صفحه تشکر هدایت کنید یا پیامی نمایش دهید
     });
   </script>
 </body>
