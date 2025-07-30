@@ -121,17 +121,18 @@
     <h2 id="form">فرم ثبت درخواست</h2>
     <form>
       <label>نام و نام خانوادگی:</label>
-      <input type="text" placeholder="نام کامل شما">
+      <input type="text" placeholder="نام کامل شما" required>
       <label>شماره تماس:</label>
-      <input type="tel" placeholder="مثلاً 09123456789">
+      <input id="phone" type="tel" placeholder="مثلاً 09123456789" pattern="[0-9]{11}" minlength="11" maxlength="11" required>
       <label>من:</label>
-      <select>
+      <select required>
+        <option value="">انتخاب کنید</option>
         <option>خریدار هستم</option>
         <option>فروشنده هستم</option>
         <option>کارشناس/مشاور هستم</option>
       </select>
       <label>توضیح نیاز:</label>
-      <textarea rows="2" placeholder="مثلاً به دنبال پژو 207 کم کارکرد هستم..."></textarea>
+      <textarea rows="2" placeholder="مثلاً به دنبال پژو 207 کم کارکرد هستم..." required></textarea>
       <button class="cta" type="submit">همین حالا درخواست بده!</button>
     </form>
 
@@ -144,8 +145,19 @@
   </div>
   <footer>
     ماشینت؛ دستیار خرید خودرو | راه‌های ارتباطی:<br>
-    برای ارتباط با واحد مشتریان با شماره تماس <a href="tel:09125530827">09125530827</a> تماس بگیرید یا پیامک دهید.<br>
+    برای تماس یا پیامک: <a href="tel:09125530827">09125530827</a><br>
+    یا از طریق واتساپ: <a href="https://wa.me/989125530827" target="_blank" rel="noopener">ارسال پیام در واتساپ</a>.<br>
     © 2025 ماشینیار
   </footer>
+  <script>
+    // اعتبارسنجی شماره تلفن (۱۱ رقم)
+    document.querySelector('form').addEventListener('submit', function(e) {
+      var phoneValue = document.getElementById('phone').value.replace(/\D/g, '');
+      if (phoneValue.length !== 11) {
+        e.preventDefault();
+        alert('اطلاعات تکمیل نیست: شماره تماس باید ۱۱ رقم باشد.');
+      }
+    });
+  </script>
 </body>
 </html>
