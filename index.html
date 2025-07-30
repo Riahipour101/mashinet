@@ -3,23 +3,95 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ماشینت دستیار خرید خودرو</title>
+  <title>ماشینت؛ دستیار خرید خودرو</title>
+  <!-- Persian Font: Vazirmatn -->
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: Vazirmatn, Tahoma, sans-serif; margin: 0; padding: 0; background: #f7f7f7; color: #222; }
-    .container { max-width: 600px; margin: 40px auto; background: #fff; border-radius: 16px; box-shadow: 0 8px 24px #0001; padding: 32px 20px; }
-    h1 { color: #009688; font-size: 2.2em; margin-bottom: 8px; }
-    h2 { font-size: 1.2em; margin: 24px 0 12px 0; color: #333; }
-    p, ul { font-size: 1.06em; line-height: 1.8; }
-    .cta { display: block; margin: 24px 0; padding: 12px 0; background: #009688; color: #fff; border: none; border-radius: 10px; font-size: 1.1em; font-weight: bold; cursor: pointer; width: 100%; transition: background 0.2s; }
-    .cta:hover { background: #00695c; }
-    form { margin-top: 20px; }
-    label { display: block; margin: 14px 0 4px 0; }
-    input, select, textarea { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ddd; font-size: 1em; }
+    /* ریسپانسیو و تنظیم فونت */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Vazirmatn', Tahoma, sans-serif;
+      background: #e0e0e0; /* خاکستری روشن */
+      color: #222;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: #fff;
+      border: 2px solid #c0c0c0; /* نقره‌ای */
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      padding: 32px 24px;
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 8px;
+      color: #007BFF; /* آبی */
+      text-align: center;
+    }
+    h2 {
+      font-size: 1.2em;
+      margin: 24px 0 12px;
+      color: #007BFF;
+    }
+    p, ul, ol {
+      font-size: 1.06em;
+      margin: 0 0 16px;
+      padding: 0 16px;
+    }
+    ul li, ol li {
+      margin-bottom: 8px;
+    }
+    .cta {
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin: 24px 0;
+      padding: 12px 0;
+      background: #007BFF; /* آبی */
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.1em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s;
+      text-decoration: none;
+    }
+    .cta:hover {
+      background: #0056b3;
+    }
+    form {
+      margin-top: 20px;
+      padding: 0 16px;
+    }
+    label {
+      display: block;
+      margin: 14px 0 4px;
+      font-weight: 500;
+      color: #333;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #c0c0c0;
+      font-family: 'Vazirmatn', Tahoma, sans-serif;
+      font-size: 1em;
+    }
     textarea { resize: vertical; }
-    footer { text-align: center; margin-top: 48px; color: #888; }
+    footer {
+      text-align: center;
+      margin-top: 48px;
+      color: #555;
+      font-size: 0.9em;
+      padding: 16px;
+    }
     @media (max-width: 600px) {
-      .container { margin: 8px; padding: 12px 5px; }
-      h1 { font-size: 1.5em; }
+      .container { margin: 16px; padding: 16px 12px; }
+      h1 { font-size: 1.6em; }
     }
   </style>
 </head>
@@ -27,17 +99,17 @@
   <div class="container">
     <h1>ماشینت؛ دستیار خرید خودرو</h1>
     <h2>خرید خودروی مطمئن، سریع و بدون دغدغه با همراهی کارشناسان ماشینت</h2>
-    <button class="cta" onclick="document.getElementById('form').scrollIntoView({behavior:'smooth'})">همین حالا درخواست خرید بده</button>
-    
+    <a class="cta" href="#form">همین حالا درخواست خرید بده</a>
+
     <p>ماشینت، اولین دستیار خرید خودرو در ایران؛ همراه شما از انتخاب و جستجوی بهترین گزینه تا کارشناسی، مشاوره حقوقی و بستن قرارداد امن.<br>
     <strong>با ماشینت، تجربه خرید خودرو رو آسون و بدون استرس کن!</strong></p>
-    
+
     <ul>
       <li><b>خریداران خودرو:</b> پیدا کردن بهترین گزینه، مشاوره و معامله امن</li>
       <li><b>فروشندگان خودرو:</b> فروش سریع و مطمئن با قرارداد امن</li>
       <li><b>کارشناسان/مشاوران:</b> همکاری با ماشینت و درآمدزایی</li>
     </ul>
-    
+
     <h2>چطور کار می‌کنه؟</h2>
     <ol>
       <li>ثبت درخواست خرید یا فروش</li>
@@ -45,7 +117,7 @@
       <li>کارشناسی و بررسی کامل خودرو</li>
       <li>معامله و قرارداد امن تا تحویل خودرو</li>
     </ol>
-    
+
     <h2 id="form">فرم ثبت درخواست</h2>
     <form>
       <label>نام و نام خانوادگی:</label>
@@ -62,7 +134,7 @@
       <textarea rows="2" placeholder="مثلاً به دنبال پژو 207 کم کارکرد هستم..."></textarea>
       <button class="cta" type="submit">همین حالا درخواست بده!</button>
     </form>
-    
+
     <h2>اعتمادسازی</h2>
     <ul>
       <li>همراهی تا پایان معامله</li>
@@ -71,8 +143,9 @@
     </ul>
   </div>
   <footer>
-    ماشینت؛ دستیار خرید خودرو | راه ارتباطی: info@mashinatt.ir (نمونه) <br>
-    © 2025 Mashinatt
+    ماشینت؛ دستیار خرید خودرو | راه‌های ارتباطی:<br>
+    برای ارتباط با واحد مشتریان با شماره تماس <a href="tel:09125530827">09125530827</a> تماس بگیرید یا پیامک دهید.<br>
+    © 2025 ماشینیار
   </footer>
 </body>
 </html>
