@@ -7,12 +7,11 @@
   <!-- Persian Font: Vazirmatn -->
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
-    /* ریسپانسیو و تنظیم فونت */
     body {
       margin: 0;
       padding: 0;
       font-family: 'Vazirmatn', Tahoma, sans-serif;
-      background: #e0e0e0; /* خاکستری روشن */
+      background: #e0e0e0;
       color: #222;
       line-height: 1.6;
     }
@@ -20,21 +19,21 @@
       max-width: 600px;
       margin: 40px auto;
       background: #fff;
-      border: 2px solid #c0c0c0; /* نقره‌ای */
+      border: 2px solid #c0c0c0;
       border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
       padding: 32px 24px;
     }
     h1 {
       font-size: 2em;
-      margin-bottom: 8px;
-      color: #007BFF; /* آبی */
+      color: #007BFF;
       text-align: center;
+      margin-bottom: 8px;
     }
     h2 {
       font-size: 1.2em;
-      margin: 24px 0 12px;
       color: #007BFF;
+      margin: 24px 0 12px;
     }
     p, ul, ol {
       font-size: 1.06em;
@@ -47,18 +46,16 @@
     .cta {
       display: block;
       width: 100%;
-      text-align: center;
-      margin: 24px 0;
       padding: 12px 0;
-      background: #007BFF; /* آبی */
+      margin: 24px 0;
+      background: #007BFF;
       color: #fff;
-      border: none;
+      text-align: center;
+      text-decoration: none;
       border-radius: 10px;
       font-size: 1.1em;
       font-weight: bold;
-      cursor: pointer;
       transition: background 0.2s;
-      text-decoration: none;
     }
     .cta:hover {
       background: #0056b3;
@@ -76,8 +73,8 @@
     input, select, textarea {
       width: 100%;
       padding: 10px;
-      border-radius: 8px;
       border: 1px solid #c0c0c0;
+      border-radius: 8px;
       font-family: 'Vazirmatn', Tahoma, sans-serif;
       font-size: 1em;
     }
@@ -85,13 +82,13 @@
     footer {
       text-align: center;
       margin-top: 48px;
+      padding: 16px;
       color: #555;
       font-size: 0.9em;
-      padding: 16px;
     }
-    @media (max-width: 600px) {
-      .container { margin: 16px; padding: 16px 12px; }
-      h1 { font-size: 1.6em; }
+    @media (max-width:600px) {
+      .container { margin:16px; padding:16px 12px; }
+      h1 { font-size:1.6em; }
     }
   </style>
 </head>
@@ -121,21 +118,24 @@
     <h2 id="form">فرم ثبت درخواست</h2>
     <!-- اتصال به Formspree -->
     <form action="https://formspree.io/f/mvgqqznd" method="POST">
-      <!-- تنظیم موضوع ایمیل -->
       <input type="hidden" name="_subject" value="درخواست جدید از ماشینت">
-      <label>نام و نام خانوادگی:</label>
-      <input name="name" type="text" placeholder="نام کامل شما" required>
-      <label>شماره تماس:</label>
-      <input name="phone" id="phone" type="tel" placeholder="مثلاً 09123456789" pattern="[0-9]{11}" minlength="11" maxlength="11" required>
-      <label>من:</label>
-      <select name="role" required>
+      <label for="name">نام و نام خانوادگی:</label>
+      <input id="name" name="name" type="text" placeholder="نام کامل شما" required>
+
+      <label for="phone">شماره تماس:</label>
+      <input id="phone" name="phone" type="tel" placeholder="مثلاً 09123456789" pattern="[0-9]{11}" required>
+
+      <label for="role">من:</label>
+      <select id="role" name="role" required>
         <option value="">انتخاب کنید</option>
-        <option>خریدار هستم</option>
-        <option>فروشنده هستم</option>
-        <option>کارشناس/مشاور هستم</option>
+        <option value="buyer">خریدار هستم</option>
+        <option value="seller">فروشنده هستم</option>
+        <option value="expert">کارشناس/مشاور هستم</option>
       </select>
-      <label>توضیح نیاز:</label>
-      <textarea name="message" rows="2" placeholder="مثلاً به دنبال پژو 207 کم کارکرد هستم..." required></textarea>
+
+      <label for="message">توضیح نیاز:</label>
+      <textarea id="message" name="message" rows="2" placeholder="مثلاً به دنبال پژو 207 کم کارکرد هستم..." required></textarea>
+
       <button class="cta" type="submit">همین حالا درخواست بده!</button>
     </form>
 
@@ -153,15 +153,13 @@
     © 2025 ماشینیار
   </footer>
   <script>
-    // اعتبارسنجی شماره تلفن (۱۱ رقم)
     document.querySelector('form').addEventListener('submit', function(e) {
-      var phoneValue = document.getElementById('phone').value.replace(/\D/g, '');
-      if (phoneValue.length !== 11) {
+      var phone = document.getElementById('phone').value.replace(/\D/g, '');
+      if (phone.length !== 11) {
         e.preventDefault();
-        alert('اطلاعات تکمیل نیست: شماره تماس باید ۱۱ رقم باشد.');
-        return;
+        alert('شماره تماس باید شامل ۱۱ رقم باشد. لطفاً آن را اصلاح کنید.');
+        document.getElementById('phone').focus();
       }
-      // بعد از ارسال فرم، می‌توانید کاربر را به صفحه تشکر هدایت کنید یا پیامی نمایش دهید
     });
   </script>
 </body>
