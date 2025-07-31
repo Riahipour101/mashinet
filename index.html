@@ -11,29 +11,29 @@
       margin: 0;
       padding: 0;
       font-family: 'Vazirmatn', Tahoma, sans-serif;
-      background: #e0e0e0;
-      color: #222;
+      background: #121212; /* رنگ پس‌زمینه تیره */
+      color: #fff; /* رنگ متن سفید */
       line-height: 1.6;
     }
     .container {
-      max-width: 600px;
+      max-width: 800px;
       margin: 40px auto;
-      background: #fff;
-      border: 2px solid #c0c0c0;
+      background: #1f1f1f; /* پس‌زمینه تیره‌تر برای کانتینر */
+      border: 2px solid #333; /* مرز تیره */
       border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3); /* سایه نرم */
       padding: 32px 24px;
     }
     h1 {
-      font-size: 2em;
-      color: #007BFF;
+      font-size: 2.5em;
+      color: #f1c40f; /* طلایی برای حس لوکس */
       text-align: center;
       margin-bottom: 8px;
       font-family: 'Vazirmatn', Tahoma, sans-serif;
     }
     h2 {
-      font-size: 1.2em;
-      color: #007BFF;
+      font-size: 1.4em;
+      color: #f1c40f;
       margin: 24px 0 12px;
       font-family: 'Vazirmatn', Tahoma, sans-serif;
     }
@@ -51,8 +51,8 @@
       width: 100%;
       padding: 12px 0;
       margin: 24px 0;
-      background: #007BFF;
-      color: #fff;
+      background: #f1c40f;
+      color: #222;
       text-align: center;
       text-decoration: none;
       border-radius: 10px;
@@ -62,7 +62,7 @@
       transition: background 0.2s, transform 0.2s;
     }
     .cta:hover {
-      background: #0056b3;
+      background: #d4ac0d;
       transform: translateY(-2px);
     }
     form {
@@ -73,33 +73,43 @@
       display: block;
       margin: 14px 0 4px;
       font-weight: 500;
-      color: #333;
+      color: #ccc; /* رنگ خاکی برای متن‌ها */
       font-family: 'Vazirmatn', Tahoma, sans-serif;
     }
     input, select, textarea {
       width: 100%;
       padding: 10px;
-      border: 1px solid #c0c0c0;
+      border: 1px solid #333;
       border-radius: 8px;
       font-family: 'Vazirmatn', Tahoma, sans-serif;
       font-size: 1em;
+      background: #2e2e2e; /* پس‌زمینه تیره برای فیلدها */
+      color: #fff;
     }
     textarea { resize: vertical; }
     footer {
       text-align: center;
       margin-top: 48px;
       padding: 16px;
-      color: #555;
+      color: #ccc;
       font-size: 0.9em;
       font-family: 'Vazirmatn', Tahoma, sans-serif;
     }
+    footer a {
+      color: #f1c40f;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
     @media (max-width:600px) {
       .container { margin:16px; padding:16px 12px; }
-      h1 { font-size:1.6em; }
+      h1 { font-size:1.8em; }
     }
+
     /* Improvements for better accessibility and interaction */
     input:focus, select:focus, textarea:focus {
-      border-color: #007BFF;
+      border-color: #f1c40f;
       outline: none;
     }
   </style>
@@ -108,25 +118,19 @@
   <div class="container">
     <h1>ماشینت؛ دستیار خرید خودرو</h1>
     <h2>خرید خودروی مطمئن، سریع و بدون دغدغه با همراهی کارشناسان ماشینت</h2>
-    <!-- دکمه CTA بالای فرم -->
-    <a class="cta" href="#form">ثبت درخواست</a>
-
-    <p>ماشینت، اولین دستیار خرید خودرو در ایران؛ همراه شما از انتخاب و جستجوی بهترین گزینه تا کارشناسی، مشاوره حقوقی و بستن قرارداد امن.<br>
-    <strong>با ماشینت، تجربه خرید خودرو رو آسون و بدون استرس کن!</strong></p>
-
+    
+    <p>در <strong>ماشینت</strong>، هدف ما ساده کردن تجربه خرید خودرو برای شماست. با استفاده از خدمات غیرحضوری ما، می‌توانید به راحتی و با بهترین قیمت خودروی مورد نظر خود را تهیه کنید. ما همراه شما خواهیم بود از ابتدا تا انتهای خرید:</p>
+    
     <ul>
-      <li><b>خریداران خودرو:</b> پیدا کردن بهترین گزینه، مشاوره و معامله امن</li>
-      <li><b>فروشندگان خودرو:</b> فروش سریع و مطمئن با قرارداد امن</li>
-      <li><b>کارشناسان/مشاوران:</b> همکاری با ماشینت و درآمدزایی</li>
+      <li><b>خرید غیرحضوری خودرو:</b> بدون نیاز به مراجعه حضوری، با مشاوره دقیق و حرفه‌ای، خودروی خود را از بین بهترین گزینه‌ها انتخاب کنید.</li>
+      <li><b>کارشناسی فنی و رنگ:</b> قبل از خرید، کارشناسان ما خودروی شما را از نظر فنی و رنگ بررسی می‌کنند تا شما اطمینان کامل از خرید خود داشته باشید.</li>
+      <li><b>همراهی در تنظیم قرارداد:</b> هنگام تنظیم قرارداد خرید، متخصصان ما کنار شما هستند تا تمامی نکات حقوقی و قانونی به درستی رعایت شود.</li>
+      <li><b>همراهی در انتقال مالکیت خودرو:</b> در لحظه آخر انتقال مالکیت، ما شما را همراهی می‌کنیم تا هیچ دغدغه‌ای نداشته باشید و فرآیند به سادگی و سرعت انجام شود.</li>
     </ul>
 
-    <h2>چطور کار می‌کنه؟</h2>
-    <ol>
-      <li>ثبت درخواست خرید یا فروش</li>
-      <li>تماس و مشاوره رایگان</li>
-      <li>کارشناسی و بررسی کامل خودرو</li>
-      <li>معامله و قرارداد امن تا تحویل خودرو</li>
-    </ol>
+    <p><strong>ماشینت</strong>، همراه شما در خریدی امن، سریع و مطمئن.</p>
+
+    <a class="cta" href="#form">ثبت درخواست</a>
 
     <!-- فرم ثبت پیشرفته با شناسه -->
     <form id="form" action="https://formspree.io/f/mvgqqznd" method="POST" onsubmit="return validatePhone(event)">
@@ -152,20 +156,15 @@
       <!-- دکمه ارسال فرم -->
       <button class="cta" type="submit">ثبت درخواست</button>
     </form>
-
-    <h2>اعتمادسازی</h2>
-    <ul>
-      <li>همراهی تا پایان معامله</li>
-      <li>تضمین صحت و سلامت خودرو</li>
-      <li>پشتیبانی حقوقی و فنی</li>
-    </ul>
   </div>
+
   <footer>
     ماشینت؛ دستیار خرید خودرو | راه‌های ارتباطی:<br>
     تماس/پیامک: <a href="tel:09125530827">09125530827</a><br>
     واتساپ: <a href="https://wa.me/989125530827" target="_blank" rel="noopener">ارسال پیام در واتساپ</a>.<br>
     © 2025 ماشینیار
   </footer>
+
   <script>
     function validatePhone(event) {
       var phone = document.getElementById('phone').value.replace(/\D/g, '');
