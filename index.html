@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ماشینت؛ دستیار خرید خودرو</title>
   <!-- Persian Font: Vazirmatn -->
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
@@ -59,10 +59,11 @@
       font-size: 1.1em;
       font-weight: bold;
       font-family: 'Vazirmatn', Tahoma, sans-serif;
-      transition: background 0.2s;
+      transition: background 0.2s, transform 0.2s;
     }
     .cta:hover {
       background: #0056b3;
+      transform: translateY(-2px);
     }
     form {
       margin-top: 20px;
@@ -96,6 +97,11 @@
       .container { margin:16px; padding:16px 12px; }
       h1 { font-size:1.6em; }
     }
+    /* Improvements for better accessibility and interaction */
+    input:focus, select:focus, textarea:focus {
+      border-color: #007BFF;
+      outline: none;
+    }
   </style>
 </head>
 <body>
@@ -123,17 +129,17 @@
     </ol>
 
     <!-- فرم ثبت پیشرفته با شناسه -->
-    <form id="form" action="https://formspree.io/f/mvgqqznd" method="POST">
+    <form id="form" action="https://formspree.io/f/mvgqqznd" method="POST" onsubmit="return validatePhone(event)">
       <input type="hidden" name="_subject" value="درخواست جدید از ماشینت">
 
       <label for="name">نام و نام خانوادگی:</label>
-      <input id="name" name="name" type="text" placeholder="نام کامل شما" required>
+      <input id="name" name="name" type="text" placeholder="نام کامل شما" required aria-required="true" aria-label="نام و نام خانوادگی" />
 
       <label for="phone">شماره تماس:</label>
-      <input id="phone" name="phone" type="tel" placeholder="مثلاً 09123456789" pattern="[0-9]{11}" required>
+      <input id="phone" name="phone" type="tel" placeholder="مثلاً 09123456789" pattern="[0-9]{11}" required aria-required="true" aria-label="شماره تماس" />
 
       <label for="role">من:</label>
-      <select id="role" name="role" required>
+      <select id="role" name="role" required aria-required="true" aria-label="نقش شما">
         <option value="">انتخاب کنید</option>
         <option value="buyer">خریدار هستم</option>
         <option value="seller">فروشنده هستم</option>
@@ -141,7 +147,7 @@
       </select>
 
       <label for="message">توضیح نیاز:</label>
-      <textarea id="message" name="message" rows="2" placeholder="مثلاً به دنبال پژو 207 کم کارکرد هستم..." required></textarea>
+      <textarea id="message" name="message" rows="2" placeholder="لطفا توضیحات دقیقی از نیاز خود بنویسید تا بهتر بتونیم کمک کنیم." required aria-required="true" aria-label="توضیح نیاز"></textarea>
 
       <!-- دکمه ارسال فرم -->
       <button class="cta" type="submit">ثبت درخواست</button>
@@ -161,14 +167,16 @@
     © 2025 ماشینیار
   </footer>
   <script>
-    document.getElementById('form').addEventListener('submit', function(e) {
+    function validatePhone(event) {
       var phone = document.getElementById('phone').value.replace(/\D/g, '');
       if (phone.length !== 11) {
-        e.preventDefault();
+        event.preventDefault();
         alert('شماره تماس باید شامل ۱۱ رقم باشد. لطفاً آن را اصلاح کنید.');
         document.getElementById('phone').focus();
+        return false;
       }
-    });
+      return true;
+    }
   </script>
 </body>
 </html>
