@@ -16,31 +16,31 @@
       line-height: 1.6;
     }
     .container {
-      max-width: 800px;
+      max-width: 900px;
       margin: 40px auto;
-      background: #1f1f1f; /* پس‌زمینه تیره‌تر برای کانتینر */
-      border: 2px solid #333; /* مرز تیره */
+      background: #1f1f1f;
       border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.3); /* سایه نرم */
-      padding: 32px 24px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      padding: 40px 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
     h1 {
       font-size: 2.5em;
       color: #f1c40f; /* طلایی برای حس لوکس */
       text-align: center;
-      margin-bottom: 8px;
-      font-family: 'Vazirmatn', Tahoma, sans-serif;
+      margin-bottom: 16px;
     }
     h2 {
       font-size: 1.4em;
       color: #f1c40f;
-      margin: 24px 0 12px;
-      font-family: 'Vazirmatn', Tahoma, sans-serif;
+      text-align: center;
     }
     p, ul, ol {
       font-size: 1.06em;
       margin: 0 0 16px;
-      padding: 0 16px;
+      padding: 0;
       font-family: 'Vazirmatn', Tahoma, sans-serif;
     }
     ul li, ol li {
@@ -49,7 +49,7 @@
     .cta {
       display: block;
       width: 100%;
-      padding: 12px 0;
+      padding: 14px 0;
       margin: 24px 0;
       background: #f1c40f;
       color: #222;
@@ -58,7 +58,6 @@
       border-radius: 10px;
       font-size: 1.1em;
       font-weight: bold;
-      font-family: 'Vazirmatn', Tahoma, sans-serif;
       transition: background 0.2s, transform 0.2s;
     }
     .cta:hover {
@@ -73,18 +72,21 @@
       display: block;
       margin: 14px 0 4px;
       font-weight: 500;
-      color: #ccc; /* رنگ خاکی برای متن‌ها */
-      font-family: 'Vazirmatn', Tahoma, sans-serif;
+      color: #ccc;
     }
     input, select, textarea {
       width: 100%;
       padding: 10px;
       border: 1px solid #333;
       border-radius: 8px;
+      background: #2e2e2e;
+      color: #fff;
       font-family: 'Vazirmatn', Tahoma, sans-serif;
       font-size: 1em;
-      background: #2e2e2e; /* پس‌زمینه تیره برای فیلدها */
-      color: #fff;
+      transition: border-color 0.3s;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: #f1c40f;
     }
     textarea { resize: vertical; }
     footer {
@@ -93,7 +95,6 @@
       padding: 16px;
       color: #ccc;
       font-size: 0.9em;
-      font-family: 'Vazirmatn', Tahoma, sans-serif;
     }
     footer a {
       color: #f1c40f;
@@ -102,15 +103,18 @@
     footer a:hover {
       text-decoration: underline;
     }
-    @media (max-width:600px) {
-      .container { margin:16px; padding:16px 12px; }
-      h1 { font-size:1.8em; }
+    /* طراحی واکنش‌گرا */
+    @media (max-width: 600px) {
+      .container {
+        margin: 16px;
+        padding: 16px;
+      }
+      h1 { font-size: 1.8em; }
+      h2 { font-size: 1.2em; }
     }
-
-    /* Improvements for better accessibility and interaction */
-    input:focus, select:focus, textarea:focus {
-      border-color: #f1c40f;
-      outline: none;
+    /* افکت‌های hover برای بخش‌های مختلف */
+    .cta, input, select, textarea {
+      cursor: pointer;
     }
   </style>
 </head>
@@ -118,7 +122,7 @@
   <div class="container">
     <h1>ماشینت؛ دستیار خرید خودرو</h1>
     <h2>خرید خودروی مطمئن، سریع و بدون دغدغه با همراهی کارشناسان ماشینت</h2>
-    
+
     <p>در <strong>ماشینت</strong>، هدف ما ساده کردن تجربه خرید خودرو برای شماست. با استفاده از خدمات غیرحضوری ما، می‌توانید به راحتی و با بهترین قیمت خودروی مورد نظر خود را تهیه کنید. ما همراه شما خواهیم بود از ابتدا تا انتهای خرید:</p>
     
     <ul>
@@ -133,15 +137,15 @@
     <a class="cta" href="#form">ثبت درخواست</a>
 
     <!-- فرم ثبت پیشرفته با شناسه -->
-    <form id="form" action="https://formspree.io/f/mvgqqznd" method="POST" onsubmit="return validatePhone(event)">
+    <form id="form" action="https://formspree.io/f/mvgqqznd" method="POST">
       <input type="hidden" name="_subject" value="درخواست جدید از ماشینت">
-
+      
       <label for="name">نام و نام خانوادگی:</label>
       <input id="name" name="name" type="text" placeholder="نام کامل شما" required aria-required="true" aria-label="نام و نام خانوادگی" />
-
+      
       <label for="phone">شماره تماس:</label>
       <input id="phone" name="phone" type="tel" placeholder="مثلاً 09123456789" pattern="[0-9]{11}" required aria-required="true" aria-label="شماره تماس" />
-
+      
       <label for="role">من:</label>
       <select id="role" name="role" required aria-required="true" aria-label="نقش شما">
         <option value="">انتخاب کنید</option>
@@ -149,10 +153,10 @@
         <option value="seller">فروشنده هستم</option>
         <option value="expert">کارشناس/مشاور هستم</option>
       </select>
-
+      
       <label for="message">توضیح نیاز:</label>
       <textarea id="message" name="message" rows="2" placeholder="لطفا توضیحات دقیقی از نیاز خود بنویسید تا بهتر بتونیم کمک کنیم." required aria-required="true" aria-label="توضیح نیاز"></textarea>
-
+      
       <!-- دکمه ارسال فرم -->
       <button class="cta" type="submit">ثبت درخواست</button>
     </form>
@@ -164,18 +168,5 @@
     واتساپ: <a href="https://wa.me/989125530827" target="_blank" rel="noopener">ارسال پیام در واتساپ</a>.<br>
     © 2025 ماشینیار
   </footer>
-
-  <script>
-    function validatePhone(event) {
-      var phone = document.getElementById('phone').value.replace(/\D/g, '');
-      if (phone.length !== 11) {
-        event.preventDefault();
-        alert('شماره تماس باید شامل ۱۱ رقم باشد. لطفاً آن را اصلاح کنید.');
-        document.getElementById('phone').focus();
-        return false;
-      }
-      return true;
-    }
-  </script>
 </body>
 </html>
